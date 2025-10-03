@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      SA_PASSWORD: "Your_password123"   # change for dev
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+
+  api:
+    build:
+      context: .
+      dockerfile: Daf.Api/Dockerfile
+    depends_on:
+      - sqlserver
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=DafDb;User Id=sa;Password=Your_password123;"
+      Jwt__Key: "ReplaceWithStrongKey"
+      Jwt__Issuer: "DAF_API"
+      Jwt__Audience: "DAF_CLIENT"
+      Stripe__SecretKey: "sk_test_REPLACE_ME"
+    ports:
+      - "5000:80"
+
+volumes:
+  mssql-data:
