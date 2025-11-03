@@ -1,0 +1,5 @@
+C:\Users\RC_Student_Lab\source\repos\CalculateGrandTotal_CorrectValues\obj\Debug\net8.0\CalculateGrandTotal_CorrectValues.csproj.AssemblyReference.cache
+C:\Users\RC_Student_Lab\source\repos\CalculateGrandTotal_CorrectValues\obj\Debug\net8.0\CalculateGrandTotal_CorrectValues.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\RC_Student_Lab\source\repos\CalculateGrandTotal_CorrectValues\obj\Debug\net8.0\CalculateGrandTotal_CorrectValues.AssemblyInfoInputs.cache
+C:\Users\RC_Student_Lab\source\repos\CalculateGrandTotal_CorrectValues\obj\Debug\net8.0\CalculateGrandTotal_CorrectValues.AssemblyInfo.cs
+C:\Users\RC_Student_Lab\source\repos\CalculateGrandTotal_CorrectValues\obj\Debug\net8.0\CalculateGrandTotal_CorrectValues.csproj.CoreCompileInputs.cache
