@@ -1,4 +1,31 @@
 # ASP.NET
+- task: VSTest@3
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\bin\**\*test.dll
+      **\bin\**\*tests.dll
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    uiTests: true
+    runSettingsFile: 'Integration Testing'
+    overrideTestrunParameters: |
+      [Fact]
+      public async Task Can_Save_And_Retrieve_Incident()
+      {
+          var options = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("TestDb").Options;
+          using (var context = new ApplicationDbContext(options))
+          {
+              context.Incidents.Add(new Incident { Title = "Flood", Location = "Durban" });
+              await context.SaveChangesAsync();
+          }
+          using (var context = new ApplicationDbContext(options))
+          {
+              var incident = context.Incidents.First();
+              Assert.Equal("Durban", incident.Location);
+          }
+      }
+    runTestsInIsolation: false
+    codeCoverageEnabled: true
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
